@@ -1,5 +1,4 @@
 import Card from "@/components/ui/Card";
-import ItemDropdown from "./ItemDropdown";
 import { Link } from "react-router-dom";
 import { DataItem } from "./types";
 
@@ -25,9 +24,6 @@ const ListItem = ({ data, path, cardBorder, details }: ListItemProps) => {
             </div>
           </div>
           {details && details(data)}
-          <div className="my-1 sm:my-0 col-span-12 sm:col-span-3 md:col-span-1 lg:col-span-3 flex md:items-center justify-end">
-            <ItemDropdown />
-          </div>
         </div>
       </Card>
     </div>

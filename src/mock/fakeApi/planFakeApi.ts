@@ -4,7 +4,7 @@ import type { Server } from "miragejs";
 
 export default function planFakeApi(server: Server, apiPrefix: string) {
   server.post(`${apiPrefix}/plans/search`, (schema, { requestBody }) => {
-    const { sort, search } = JSON.parse(requestBody);
+    const { sort, search, difficulty } = JSON.parse(requestBody);
     let data = schema.db.plans;
     if (sort === "asc") {
       data = data.sort((a, b) => (a.name > b.name ? 1 : -1));
@@ -16,6 +16,11 @@ export default function planFakeApi(server: Server, apiPrefix: string) {
     if (search) {
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       data = wildCardSearch(data, search) as any;
+    }
+
+    if (difficulty) {
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+      data = data.filter((e) => e.difficulty === difficulty) as any;
     }
 
     return data;

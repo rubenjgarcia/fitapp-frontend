@@ -32,6 +32,7 @@ export type PostPlanRequest = {
 
 export type GetPlanRequest = {
   sort?: "asc" | "desc";
+  difficulty?: PlanDifficulty;
   search?: string;
 };
 

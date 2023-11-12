@@ -39,6 +39,8 @@ export type PostExerciseRequest = {
 
 export type GetExerciseRequest = {
   sort?: "asc" | "desc";
+  muscle?: ExerciseMuscle;
+  equipment?: ExerciseEquipment;
   search?: string;
 };
 

@@ -17,10 +17,13 @@ export type ExerciseListState = {
 
 export const SLICE_NAME = "exercises";
 
-export const getList = createAsyncThunk(SLICE_NAME + "/getList", async (data: GetExerciseRequest) => {
-  const response = await searchExercises(data);
-  return response.data;
-});
+export const getList = createAsyncThunk(
+  SLICE_NAME + "/getList",
+  async (data: GetExerciseRequest) => {
+    const response = await searchExercises(data);
+    return response.data;
+  }
+);
 
 const initialState: ExerciseListState = {
   loading: false,
@@ -54,6 +57,12 @@ const exerciseListSlice = createSlice({
     setSearch: (state, action) => {
       state.query.search = action.payload;
     },
+    setMuscleFilter: (state, action) => {
+      state.query.muscle = action.payload;
+    },
+    setEquipmentFilter: (state, action) => {
+      state.query.equipment = action.payload;
+    },
     toggleNewDialog: (state, action) => {
       state.newDialog = action.payload;
     },
@@ -73,6 +82,13 @@ const exerciseListSlice = createSlice({
   },
 });
 
-export const { toggleView, toggleSort, toggleNewDialog, setSearch } = exerciseListSlice.actions;
+export const {
+  toggleView,
+  toggleSort,
+  toggleNewDialog,
+  setSearch,
+  setMuscleFilter,
+  setEquipmentFilter,
+} = exerciseListSlice.actions;
 
 export default exerciseListSlice.reducer;

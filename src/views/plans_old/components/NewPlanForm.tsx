@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { PlanDifficulty, PlanDurationType } from "@/services/PlanService";
 import { useTranslation } from "react-i18next";
 import { Radio, Select } from "@/components/ui";
-import { getDifficultyBadgeColor } from "./DifficultyBadge";
+import { getDifficultyBadgeColor } from "@/views/plans/PlanList/components/DifficultyBadge";
 
 type FormModel = {
   name: string;
@@ -137,15 +137,11 @@ const NewPlanForm = () => {
                     <Select
                       field={field}
                       form={form}
-                      options={durationTypeOptions.map((o) => ({
-                        value: o.value,
-                        label: t(`plans.durationType.${o.value}`) || o.label,
-                      }))}
+                      options={durationTypeOptions}
                       value={durationTypeOptions.filter(
                         (option) => option.value === values.durationType
                       )}
                       onChange={(option) => form.setFieldValue(field.name, option?.value)}
-                      getOptionLabel={(o) => t(`plans.durationType.${o.value}`) || o.label}
                     />
                   )}
                 </Field>

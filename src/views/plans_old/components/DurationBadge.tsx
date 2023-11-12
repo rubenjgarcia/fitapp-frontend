@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui";
 import { PlanDurationType } from "@/services/PlanService";
 import { useTranslation } from "react-i18next";
 import { HiCalendar } from "react-icons/hi";

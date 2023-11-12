@@ -14,14 +14,17 @@ import debounce from "lodash/debounce";
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "@/store";
+import BadgeSelect, { Option } from "../BadgeSelect";
+import capitalize from "@/utils/capitalize";
 
 export type DataListActionBarProps = {
   dataName: string;
   title: string;
   newButtonText: string;
+  filters?: { placeholder: string; path: string; options: Option[] }[];
 };
 
-const ActionBar = ({ dataName, title, newButtonText }: DataListActionBarProps) => {
+const ActionBar = ({ dataName, title, newButtonText, filters }: DataListActionBarProps) => {
   const dispatch = useAppDispatch();
 
   const inputRef = useRef(null);
@@ -30,7 +33,7 @@ const ActionBar = ({ dataName, title, newButtonText }: DataListActionBarProps) =
 
   const view = useAppSelector((state: any) => state[dataName].data.view);
 
-  const { sort } = useAppSelector((state: any) => state[dataName].data.query);
+  const query = useAppSelector((state: any) => state[dataName].data.query);
 
   const onViewToggle = () => {
     dispatch({
@@ -41,8 +44,15 @@ const ActionBar = ({ dataName, title, newButtonText }: DataListActionBarProps) =
 
   const onToggleSort = () => {
     dispatch({
-      payload: sort === "asc" ? "desc" : "asc",
+      payload: query.sort === "asc" ? "desc" : "asc",
       type: `${dataName}/state/toggleSort`,
+    });
+  };
+
+  const onSelectFilter = (path: string, value: string) => {
+    dispatch({
+      payload: value,
+      type: `${dataName}/state/set${capitalize(path)}Filter`,
     });
   };
 
@@ -67,6 +77,16 @@ const ActionBar = ({ dataName, title, newButtonText }: DataListActionBarProps) =
     <div className="lg:flex items-center justify-between mb-4">
       <h3 className="mb-4 lg:mb-0">{t(title)}</h3>
       <div className="flex flex-col md:flex-row md:items-center gap-1">
+        {filters &&
+          filters.map((f) => (
+            <BadgeSelect
+              key={f.path}
+              placeholder={t(f.placeholder)}
+              options={f.options}
+              onChange={(sel) => onSelectFilter(f.path, (sel as Option).value)}
+              value={query[f.path]}
+            />
+          ))}
         <Input
           ref={inputRef}
           size="sm"
@@ -83,12 +103,12 @@ const ActionBar = ({ dataName, title, newButtonText }: DataListActionBarProps) =
             onClick={() => onViewToggle()}
           />
         </Tooltip>
-        <Tooltip title={`Sort: ${sort === "asc" ? "A-Z" : "Z-A"}`}>
+        <Tooltip title={`Sort: ${query.sort === "asc" ? "A-Z" : "Z-A"}`}>
           <Button
             className="hidden md:flex"
             variant="plain"
             size="sm"
-            icon={sort === "asc" ? <HiOutlineSortAscending /> : <HiOutlineSortDescending />}
+            icon={query.sort === "asc" ? <HiOutlineSortAscending /> : <HiOutlineSortDescending />}
             onClick={onToggleSort}
           />
         </Tooltip>

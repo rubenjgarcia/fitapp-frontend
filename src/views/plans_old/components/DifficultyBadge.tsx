@@ -6,20 +6,21 @@ type DifficultyBadgeProps = {
   difficulty: PlanDifficulty;
 };
 
-export const getDifficultyBadgeColor = (difficulty: PlanDifficulty) => {
-  switch (difficulty) {
-    case PlanDifficulty.BEGINNER:
-      return "green-500";
-    case PlanDifficulty.INTERMEDIATE:
-      return "yellow-500";
-    case PlanDifficulty.ADVANCED:
-      return "red-500";
-  }
-};
-
 const DifficultyBadge = ({ difficulty }: DifficultyBadgeProps) => {
   const { t } = useTranslation();
-  const color = "bg-" + getDifficultyBadgeColor(difficulty);
+  let color;
+
+  switch (difficulty) {
+    case PlanDifficulty.BEGINNER:
+      color = "bg-emerald-500";
+      break;
+    case PlanDifficulty.INTERMEDIATE:
+      color = "bg-yellow-500";
+      break;
+    case PlanDifficulty.ADVANCED:
+      color = "bg-red-500";
+      break;
+  }
 
   return (
     <Badge

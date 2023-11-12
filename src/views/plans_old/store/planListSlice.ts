@@ -54,9 +54,6 @@ const planListSlice = createSlice({
     setSearch: (state, action) => {
       state.query.search = action.payload;
     },
-    setDifficultyFilter: (state, action) => {
-      state.query.difficulty = action.payload;
-    },
     toggleNewDialog: (state, action) => {
       state.newDialog = action.payload;
     },
@@ -76,7 +73,6 @@ const planListSlice = createSlice({
   },
 });
 
-export const { toggleView, toggleSort, toggleNewDialog, setSearch, setDifficultyFilter } =
-  planListSlice.actions;
+export const { toggleView, toggleSort, toggleNewDialog, setSearch } = planListSlice.actions;
 
 export default planListSlice.reducer;

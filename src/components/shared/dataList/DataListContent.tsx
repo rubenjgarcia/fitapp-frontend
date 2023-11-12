@@ -30,6 +30,7 @@ const DataListContent = ({
   const list = useSelector((state: any) => state[dataName].data.list);
   const view = useSelector((state: any) => state[dataName].data.view);
   const { sort, search } = useSelector((state: any) => state[dataName].data.query);
+  const query = useSelector((state: any) => state[dataName].data.query);
 
   const getList = createAsyncThunk(dataName + "/getList", async (data: any) => {
     const response = await getListApi(data);
@@ -37,8 +38,8 @@ const DataListContent = ({
   });
 
   useEffect(() => {
-    dispatch(getList({ sort, search }));
-  }, [dispatch, sort, search]);
+    dispatch(getList(query));
+  }, [dispatch, query]);
 
   return (
     <div className={classNames("mt-6 h-full flex flex-col", loading && "justify-center")}>

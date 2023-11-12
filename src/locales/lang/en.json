@@ -1,6 +1,7 @@
 {
     "common": {
         "search": "Search",
+        "clear": "Clear",
         "listView": "List View",
         "gridView": "Grid View"
     },
@@ -18,7 +19,10 @@
     "plans": {
         "planList": {
             "title": "Plan List",
-            "newPlan": "New Plan"
+            "newPlan": "New Plan",
+            "filters": {
+                "difficulty": "Difficulty"
+            }
         },
         "difficulty": {
             "BEGINNER": "Beginner",
@@ -26,6 +30,9 @@
             "ADVANCED": "Advanced"
         },
         "durationType": {
+            "DAYS": "Days",
+            "WEEKS": "Weeks",
+            "MONTHS": "Months",
             "DAYS_one": "{{count}} day",
             "DAYS_other": "{{count}} days",
             "WEEKS_one": "{{count}} week",
@@ -45,9 +52,6 @@
                     "description_placeholder": "Enter description",
                     "difficulty": "Difficulty",
                     "difficulty_required": "Difficulty is required",
-                    "difficulty_BEGINNER": "Beginner",
-                    "difficulty_INTERMEDIATE": "Intermediate",
-                    "difficulty_ADVANCED": "Advanced",
                     "duration": "Duration",
                     "duration_required": "Duration is required",
                     "duration_min": "Duration must be at least 1",
@@ -60,20 +64,31 @@
     "exercises": {
         "exerciseList": {
             "title": "Exercise List",
-            "newExercise": "New Exercise"
+            "newExercise": "New Exercise",
+            "filters": {
+                "muscle": "Muscle...",
+                "equipment": "Equipment..."
+            }
         },
-        "difficulty": {
-            "BEGINNER": "Beginner",
-            "INTERMEDIATE": "Intermediate",
-            "ADVANCED": "Advanced"
+        "muscle": {
+            "NONE": "None",
+            "SHOULDERS": "Shoulders",
+            "BICEPS": "Biceps",
+            "TRICEPS": "Triceps",
+            "FOREARMS": "Forearms",
+            "CHEST": "Chest",
+            "CORE": "Core",
+            "BACK": "Back",
+            "UPPER_LEGS": "Upper legs",
+            "GLUTES": "Glutes",
+            "CALVES": "Calves"
         },
-        "durationType": {
-            "DAYS_one": "{{count}} day",
-            "DAYS_other": "{{count}} days",
-            "WEEKS_one": "{{count}} week",
-            "WEEKS_other": "{{count}} weeks",
-            "MONTHS_one": "{{count}} month",
-            "MONTHS_other": "{{count}} months"
+        "equipment": {
+            "NONE": "None",
+            "DUMBELLS": "Dumbells",
+            "BARBELL": "Barbell",
+            "KETTLEBELL": "Kettlebell",
+            "EZ_BARBELL": "EZ Barbell"
         },
         "newExerciseForm": {
             "title": "Add new exercise",
@@ -85,15 +100,10 @@
                     "name_min": "Name must be at least 3 characters",
                     "description": "Description",
                     "description_placeholder": "Enter description",
-                    "difficulty": "Difficulty",
-                    "difficulty_required": "Difficulty is required",
-                    "difficulty_BEGINNER": "Beginner",
-                    "difficulty_INTERMEDIATE": "Intermediate",
-                    "difficulty_ADVANCED": "Advanced",
-                    "duration": "Duration",
-                    "duration_required": "Duration is required",
-                    "duration_min": "Duration must be at least 1",
-                    "durationType_required": "Duration type is required"
+                    "muscle": "Muscle",
+                    "muscle_required": "Muscle is required",
+                    "equipment": "Equipment",
+                    "equipment_required": "Equipment is required"
                 },
                 "submit": "Create exercise"
             }
