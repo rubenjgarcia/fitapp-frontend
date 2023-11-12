@@ -1,0 +1,102 @@
+{
+    "common": {
+        "search": "Search",
+        "listView": "List View",
+        "gridView": "Grid View"
+    },
+    "nav": {
+        "home": "Home",
+        "plans": {
+            "plansMenu": "Plans",
+            "list": "View Plans"
+        },
+        "exercises": {
+            "exercisesMenu": "Exercises",
+            "list": "View Exercises"
+        }
+    },
+    "plans": {
+        "planList": {
+            "title": "Plan List",
+            "newPlan": "New Plan"
+        },
+        "difficulty": {
+            "BEGINNER": "Beginner",
+            "INTERMEDIATE": "Intermediate",
+            "ADVANCED": "Advanced"
+        },
+        "durationType": {
+            "DAYS_one": "{{count}} day",
+            "DAYS_other": "{{count}} days",
+            "WEEKS_one": "{{count}} week",
+            "WEEKS_other": "{{count}} weeks",
+            "MONTHS_one": "{{count}} month",
+            "MONTHS_other": "{{count}} months"
+        },
+        "newPlanForm": {
+            "title": "Add new plan",
+            "form": {
+                "fields": {
+                    "name": "Name",
+                    "name_placeholder": "Enter name",
+                    "name_required": "Name is required",
+                    "name_min": "Name must be at least 3 characters",
+                    "description": "Description",
+                    "description_placeholder": "Enter description",
+                    "difficulty": "Difficulty",
+                    "difficulty_required": "Difficulty is required",
+                    "difficulty_BEGINNER": "Beginner",
+                    "difficulty_INTERMEDIATE": "Intermediate",
+                    "difficulty_ADVANCED": "Advanced",
+                    "duration": "Duration",
+                    "duration_required": "Duration is required",
+                    "duration_min": "Duration must be at least 1",
+                    "durationType_required": "Duration type is required"
+                },
+                "submit": "Create plan"
+            }
+        }
+    },
+    "exercises": {
+        "exerciseList": {
+            "title": "Exercise List",
+            "newExercise": "New Exercise"
+        },
+        "difficulty": {
+            "BEGINNER": "Beginner",
+            "INTERMEDIATE": "Intermediate",
+            "ADVANCED": "Advanced"
+        },
+        "durationType": {
+            "DAYS_one": "{{count}} day",
+            "DAYS_other": "{{count}} days",
+            "WEEKS_one": "{{count}} week",
+            "WEEKS_other": "{{count}} weeks",
+            "MONTHS_one": "{{count}} month",
+            "MONTHS_other": "{{count}} months"
+        },
+        "newExerciseForm": {
+            "title": "Add new exercise",
+            "form": {
+                "fields": {
+                    "name": "Name",
+                    "name_placeholder": "Enter name",
+                    "name_required": "Name is required",
+                    "name_min": "Name must be at least 3 characters",
+                    "description": "Description",
+                    "description_placeholder": "Enter description",
+                    "difficulty": "Difficulty",
+                    "difficulty_required": "Difficulty is required",
+                    "difficulty_BEGINNER": "Beginner",
+                    "difficulty_INTERMEDIATE": "Intermediate",
+                    "difficulty_ADVANCED": "Advanced",
+                    "duration": "Duration",
+                    "duration_required": "Duration is required",
+                    "duration_min": "Duration must be at least 1",
+                    "durationType_required": "Duration type is required"
+                },
+                "submit": "Create exercise"
+            }
+        }
+    }
+}
